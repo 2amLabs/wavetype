@@ -7,7 +7,8 @@
 <meta name="description" content="Pisanie głosem na Macu, 100% prywatnie. Naciśnij klawisz, mów, puść. Whisper działa lokalnie — twój głos nie opuszcza urządzenia. Za darmo w Mac App Store.">
 <meta property="og:title" content="Wavetype — Prywatne dyktowanie głosowe dla Mac">
 <meta property="og:description" content="Pisanie głosem na Macu, 100% prywatnie. Naciśnij klawisz, mów, puść. Whisper działa lokalnie — twój głos nie opuszcza urządzenia. Za darmo w Mac App Store.">
-<meta property="og:image" content="https://2amlabs.github.io/wavetype/../assets/screenshots/listing_pl_1_hero.png">
+<meta property="og:image" content="https://2amlabs.github.io/wavetype/assets/screenshots/listing_pl_1_hero.png">
+<meta name="theme-color" content="#ffffff">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../app-icon.png">
@@ -66,6 +67,7 @@ img { max-width: 100%; height: auto; display: block; }
 .primary-nav { display: flex; gap: 22px; flex: 1; }
 .primary-nav a { text-decoration: none; color: var(--muted); font-size: 14px; }
 .primary-nav a:hover { color: var(--text); }
+.lang-picker { margin-left: auto; }
 .lang-picker select {
   background: transparent; border: 1px solid var(--border); border-radius: 6px;
   padding: 5px 8px; font-size: 13px; color: var(--text); cursor: pointer;
@@ -156,6 +158,15 @@ img { max-width: 100%; height: auto; display: block; }
 .price-card .btn { align-self: stretch; justify-content: center; margin-top: auto; }
 .price-fine { color: var(--muted); font-size: 13px; text-align: center; margin-top: 8px; }
 
+.apple-dict { padding: 80px 24px; background: #fff; }
+.apple-dict-inner { max-width: 1100px; margin: 0 auto; }
+.apple-dict h2 { font-size: 36px; font-weight: 700; letter-spacing: -0.01em; text-align: center; margin-bottom: 14px; }
+.apple-dict-intro { text-align: center; color: var(--muted); max-width: 720px; margin: 0 auto 40px; font-size: 16px; }
+.apple-dict-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.ad-card { background: var(--bg-alt); border-radius: 14px; padding: 26px 24px; }
+.ad-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.01em; }
+.ad-card p { color: var(--muted); font-size: 15px; line-height: 1.55; }
+
 .faq { background: var(--bg-alt); padding: 80px 24px; }
 .faq-inner { max-width: 800px; margin: 0 auto; }
 .faq h2 { font-size: 36px; font-weight: 700; letter-spacing: -0.01em; text-align: center; margin-bottom: 40px; }
@@ -183,6 +194,7 @@ footer nav a:hover { color: var(--text); }
 @media (max-width: 760px) {
   .features { grid-template-columns: 1fr; }
   .pricing-cards { grid-template-columns: 1fr; }
+  .apple-dict-grid { grid-template-columns: 1fr; }
   .primary-nav { display: none; }
   .hero { padding: 50px 20px 40px; }
   .compare th, .compare td { padding: 10px 8px; font-size: 13px; }
@@ -200,6 +212,7 @@ footer nav a:hover { color: var(--text); }
     <nav class="primary-nav">
       <a href="#features">Funkcje</a>
       <a href="#compare">Dlaczego Wavetype</a>
+      <a href="#apple">vs. Dyktowanie Apple</a>
       <a href="#pricing">Ceny</a>
       <a href="#faq">FAQ</a>
     </nav>
@@ -239,7 +252,7 @@ footer nav a:hover { color: var(--text); }
 <section id="compare" class="compare">
   <div class="compare-inner">
     <h2>Dlaczego Wavetype</h2>
-    <p class="compare-intro">Lokalne dyktowanie głosowe to nie nowość — ale większość opcji to drogie subskrypcje, aplikacje poza sandboxem wysyłające audio do chmury, albo niedopracowane narzędzia deweloperskie. Oto uczciwe porównanie:</p>
+    <p class="compare-intro">Na Macu jest kilka dobrych narzędzi do lokalnego dyktowania. Oto jak Wavetype wypada w tym, co liczy się na co dzień:</p>
     <table>
       <thead>
         <tr>
@@ -252,11 +265,35 @@ footer nav a:hover { color: var(--text); }
       <tbody>
         <tr><td>100% lokalnie</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="no">✗</span></td></tr>
 <tr><td>Automatyczne wklejanie</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
-<tr><td>Cena dożywotnia</td><td>$14.99 / $19.99</td><td>$59</td><td>$84/yr</td></tr>
 <tr><td>Wersja darmowa</td><td><span class="yes">✓</span></td><td><span class="no">✗</span></td><td><span class="no">✗</span></td></tr>
 <tr><td>99+ języków</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
       </tbody>
     </table>
+  </div>
+</section>
+
+<section id="apple" class="apple-dict">
+  <div class="apple-dict-inner">
+    <h2>Przesiadasz się z Dyktowania Apple?</h2>
+    <p class="apple-dict-intro">Dyktowanie Apple jest wbudowane w macOS i wielu osobom wystarcza. Wavetype jest do przypadków, gdy potrzebujesz dedykowanego narzędzia.</p>
+    <div class="apple-dict-grid">
+      <div class="ad-card">
+        <h3>Mów tak długo, jak chcesz</h3>
+        <p>Trzymaj klawisz, mów, puść. Wavetype obsłuży akapit albo cały email — za jednym zamachem. Bez limitu czasu, bez auto-stopu.</p>
+      </div>
+      <div class="ad-card">
+        <h3>Wielojęzycznie bez ustawień</h3>
+        <p>Whisper rozpoznaje 99+ języków automatycznie. Przełącz z polskiego na angielski w środku zdania — transkrypcja podąża.</p>
+      </div>
+      <div class="ad-card">
+        <h3>100% lokalnie. Zawsze.</h3>
+        <p>Po pierwszym pobraniu modelu Wavetype działa bez internetu — w samolocie, w tunelu, na starym MacBooku. Bez Apple ID, bez wycieczki do chmury.</p>
+      </div>
+      <div class="ad-card">
+        <h3>Interpunkcja pojawia się sama</h3>
+        <p>Whisper dodaje przecinki, kropki, akapity i wielkie litery automatycznie. Po prostu mów — model zajmie się resztą.</p>
+      </div>
+    </div>
   </div>
 </section>
 

@@ -8,6 +8,7 @@
 <meta property="og:title" content="Wavetype — Private Voice Dictation for Mac">
 <meta property="og:description" content="Voice typing on your Mac, 100% private. Hold a key, speak, release. Whisper runs locally — your voice never leaves your device. Free on the Mac App Store.">
 <meta property="og:image" content="https://2amlabs.github.io/wavetype/assets/screenshots/listing_en_1_hero.png">
+<meta name="theme-color" content="#ffffff">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="app-icon.png">
@@ -66,6 +67,7 @@ img { max-width: 100%; height: auto; display: block; }
 .primary-nav { display: flex; gap: 22px; flex: 1; }
 .primary-nav a { text-decoration: none; color: var(--muted); font-size: 14px; }
 .primary-nav a:hover { color: var(--text); }
+.lang-picker { margin-left: auto; }
 .lang-picker select {
   background: transparent; border: 1px solid var(--border); border-radius: 6px;
   padding: 5px 8px; font-size: 13px; color: var(--text); cursor: pointer;
@@ -156,6 +158,15 @@ img { max-width: 100%; height: auto; display: block; }
 .price-card .btn { align-self: stretch; justify-content: center; margin-top: auto; }
 .price-fine { color: var(--muted); font-size: 13px; text-align: center; margin-top: 8px; }
 
+.apple-dict { padding: 80px 24px; background: #fff; }
+.apple-dict-inner { max-width: 1100px; margin: 0 auto; }
+.apple-dict h2 { font-size: 36px; font-weight: 700; letter-spacing: -0.01em; text-align: center; margin-bottom: 14px; }
+.apple-dict-intro { text-align: center; color: var(--muted); max-width: 720px; margin: 0 auto 40px; font-size: 16px; }
+.apple-dict-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.ad-card { background: var(--bg-alt); border-radius: 14px; padding: 26px 24px; }
+.ad-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.01em; }
+.ad-card p { color: var(--muted); font-size: 15px; line-height: 1.55; }
+
 .faq { background: var(--bg-alt); padding: 80px 24px; }
 .faq-inner { max-width: 800px; margin: 0 auto; }
 .faq h2 { font-size: 36px; font-weight: 700; letter-spacing: -0.01em; text-align: center; margin-bottom: 40px; }
@@ -183,6 +194,7 @@ footer nav a:hover { color: var(--text); }
 @media (max-width: 760px) {
   .features { grid-template-columns: 1fr; }
   .pricing-cards { grid-template-columns: 1fr; }
+  .apple-dict-grid { grid-template-columns: 1fr; }
   .primary-nav { display: none; }
   .hero { padding: 50px 20px 40px; }
   .compare th, .compare td { padding: 10px 8px; font-size: 13px; }
@@ -200,6 +212,7 @@ footer nav a:hover { color: var(--text); }
     <nav class="primary-nav">
       <a href="#features">Features</a>
       <a href="#compare">Why Wavetype</a>
+      <a href="#apple">vs. Apple Dictation</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
     </nav>
@@ -239,7 +252,7 @@ footer nav a:hover { color: var(--text); }
 <section id="compare" class="compare">
   <div class="compare-inner">
     <h2>Why Wavetype</h2>
-    <p class="compare-intro">Local voice dictation isn't new — but most options are either expensive subscriptions, sandbox-free apps that send audio to the cloud, or developer toys without polish. Here's the honest comparison:</p>
+    <p class="compare-intro">There are a few good local-dictation tools for Mac. Here's how Wavetype compares on the things that matter day to day:</p>
     <table>
       <thead>
         <tr>
@@ -252,11 +265,35 @@ footer nav a:hover { color: var(--text); }
       <tbody>
         <tr><td>100% local</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="no">✗</span></td></tr>
 <tr><td>Auto-paste into any app</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
-<tr><td>Lifetime price</td><td>$14.99 / $19.99</td><td>$59</td><td>$84/yr</td></tr>
 <tr><td>Free tier</td><td><span class="yes">✓</span></td><td><span class="no">✗</span></td><td><span class="no">✗</span></td></tr>
 <tr><td>99+ languages</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
       </tbody>
     </table>
+  </div>
+</section>
+
+<section id="apple" class="apple-dict">
+  <div class="apple-dict-inner">
+    <h2>Coming from Apple Dictation?</h2>
+    <p class="apple-dict-intro">Apple Dictation is built into macOS and works well for many people. Wavetype is for the cases where you need a dedicated tool.</p>
+    <div class="apple-dict-grid">
+      <div class="ad-card">
+        <h3>Speak as long as you want</h3>
+        <p>Hold the key, talk, release. Wavetype handles paragraph-long thoughts and full emails in one pass — no time limit, no auto-stop.</p>
+      </div>
+      <div class="ad-card">
+        <h3>Multilingual without settings</h3>
+        <p>Whisper auto-detects 99+ languages on the fly. Switch from English to Spanish to Czech mid-sentence and the transcription follows.</p>
+      </div>
+      <div class="ad-card">
+        <h3>100% local. Always.</h3>
+        <p>After the first model download, Wavetype runs without internet — on a plane, in a tunnel, on an old MacBook. No Apple ID, no cloud round-trip.</p>
+      </div>
+      <div class="ad-card">
+        <h3>Punctuation that just shows up</h3>
+        <p>Whisper adds commas, periods, paragraph breaks and capitalization automatically. Just talk — the model figures out the rest.</p>
+      </div>
+    </div>
   </div>
 </section>
 

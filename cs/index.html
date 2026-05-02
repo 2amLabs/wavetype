@@ -7,7 +7,8 @@
 <meta name="description" content="Hlasové psaní na Macu, 100% soukromě. Stiskněte klávesu, mluvte, pusťte. Whisper běží lokálně — váš hlas neopouští zařízení. Zdarma v Mac App Store.">
 <meta property="og:title" content="Wavetype — Soukromé hlasové diktování pro Mac">
 <meta property="og:description" content="Hlasové psaní na Macu, 100% soukromě. Stiskněte klávesu, mluvte, pusťte. Whisper běží lokálně — váš hlas neopouští zařízení. Zdarma v Mac App Store.">
-<meta property="og:image" content="https://2amlabs.github.io/wavetype/../assets/screenshots/listing_cs_1_hero.png">
+<meta property="og:image" content="https://2amlabs.github.io/wavetype/assets/screenshots/listing_cs_1_hero.png">
+<meta name="theme-color" content="#ffffff">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../app-icon.png">
@@ -66,6 +67,7 @@ img { max-width: 100%; height: auto; display: block; }
 .primary-nav { display: flex; gap: 22px; flex: 1; }
 .primary-nav a { text-decoration: none; color: var(--muted); font-size: 14px; }
 .primary-nav a:hover { color: var(--text); }
+.lang-picker { margin-left: auto; }
 .lang-picker select {
   background: transparent; border: 1px solid var(--border); border-radius: 6px;
   padding: 5px 8px; font-size: 13px; color: var(--text); cursor: pointer;
@@ -156,6 +158,15 @@ img { max-width: 100%; height: auto; display: block; }
 .price-card .btn { align-self: stretch; justify-content: center; margin-top: auto; }
 .price-fine { color: var(--muted); font-size: 13px; text-align: center; margin-top: 8px; }
 
+.apple-dict { padding: 80px 24px; background: #fff; }
+.apple-dict-inner { max-width: 1100px; margin: 0 auto; }
+.apple-dict h2 { font-size: 36px; font-weight: 700; letter-spacing: -0.01em; text-align: center; margin-bottom: 14px; }
+.apple-dict-intro { text-align: center; color: var(--muted); max-width: 720px; margin: 0 auto 40px; font-size: 16px; }
+.apple-dict-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.ad-card { background: var(--bg-alt); border-radius: 14px; padding: 26px 24px; }
+.ad-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.01em; }
+.ad-card p { color: var(--muted); font-size: 15px; line-height: 1.55; }
+
 .faq { background: var(--bg-alt); padding: 80px 24px; }
 .faq-inner { max-width: 800px; margin: 0 auto; }
 .faq h2 { font-size: 36px; font-weight: 700; letter-spacing: -0.01em; text-align: center; margin-bottom: 40px; }
@@ -183,6 +194,7 @@ footer nav a:hover { color: var(--text); }
 @media (max-width: 760px) {
   .features { grid-template-columns: 1fr; }
   .pricing-cards { grid-template-columns: 1fr; }
+  .apple-dict-grid { grid-template-columns: 1fr; }
   .primary-nav { display: none; }
   .hero { padding: 50px 20px 40px; }
   .compare th, .compare td { padding: 10px 8px; font-size: 13px; }
@@ -200,6 +212,7 @@ footer nav a:hover { color: var(--text); }
     <nav class="primary-nav">
       <a href="#features">Funkce</a>
       <a href="#compare">Proč Wavetype</a>
+      <a href="#apple">vs. Apple Diktování</a>
       <a href="#pricing">Ceny</a>
       <a href="#faq">FAQ</a>
     </nav>
@@ -239,7 +252,7 @@ footer nav a:hover { color: var(--text); }
 <section id="compare" class="compare">
   <div class="compare-inner">
     <h2>Proč Wavetype</h2>
-    <p class="compare-intro">Lokální hlasové diktování není novinka — ale většina řešení jsou drahé předplatné, neoznačené aplikace posílající zvuk do cloudu, nebo nedotažené hračky. Tady je férové srovnání:</p>
+    <p class="compare-intro">Pro Mac existuje pár dobrých nástrojů na lokální diktování. Takhle se Wavetype porovnává v tom, co se počítá každý den:</p>
     <table>
       <thead>
         <tr>
@@ -252,11 +265,35 @@ footer nav a:hover { color: var(--text); }
       <tbody>
         <tr><td>100% lokálně</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="no">✗</span></td></tr>
 <tr><td>Automatické vkládání</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
-<tr><td>Doživotní cena</td><td>$14.99 / $19.99</td><td>$59</td><td>$84/yr</td></tr>
 <tr><td>Zdarma verze</td><td><span class="yes">✓</span></td><td><span class="no">✗</span></td><td><span class="no">✗</span></td></tr>
 <tr><td>99+ jazyků</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
       </tbody>
     </table>
+  </div>
+</section>
+
+<section id="apple" class="apple-dict">
+  <div class="apple-dict-inner">
+    <h2>Přecházíte z Apple Diktování?</h2>
+    <p class="apple-dict-intro">Apple Diktování je součástí macOS a mnoha lidem dobře slouží. Wavetype je pro případy, kdy potřebujete specializovaný nástroj.</p>
+    <div class="apple-dict-grid">
+      <div class="ad-card">
+        <h3>Mluvte jak dlouho chcete</h3>
+        <p>Stiskněte klávesu, mluvte, pusťte. Wavetype zvládne odstavec i celý email v jednom průchodu — bez časového limitu, bez automatického zastavení.</p>
+      </div>
+      <div class="ad-card">
+        <h3>Vícejazyčně bez nastavení</h3>
+        <p>Whisper sám rozpozná 99+ jazyků. Přepněte z češtiny na angličtinu uprostřed věty a přepis vás následuje.</p>
+      </div>
+      <div class="ad-card">
+        <h3>100% lokálně. Vždy.</h3>
+        <p>Po prvním stažení modelu Wavetype funguje offline — v letadle, v tunelu, na starém MacBooku. Žádné Apple ID, žádné odesílání do cloudu.</p>
+      </div>
+      <div class="ad-card">
+        <h3>Interpunkce sama</h3>
+        <p>Whisper doplní čárky, tečky, odstavce a velká písmena automaticky. Stačí mluvit — model si poradí.</p>
+      </div>
+    </div>
   </div>
 </section>
 
