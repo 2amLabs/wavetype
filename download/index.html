@@ -8,24 +8,35 @@
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; background: #f5f5f7; color: #1d1d1f; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; padding: 40px 24px; line-height: 1.5; }
   .card { background: #fff; padding: 36px 32px; border-radius: 16px; max-width: 440px; box-shadow: 0 10px 40px rgba(0,0,0,.08); text-align: center; }
-  h1 { font-size: 22px; font-weight: 700; margin: 0 0 12px; letter-spacing: -0.01em; }
-  p { font-size: 15px; color: #6e6e73; margin: 0 0 18px; }
+  h1 { font-size: 22px; font-weight: 700; margin: 0 0 10px; letter-spacing: -0.01em; }
+  p { font-size: 15px; color: #6e6e73; margin: 0 0 14px; }
   a { color: #1d1d1f; font-weight: 600; }
   .spinner { width: 28px; height: 28px; border: 3px solid #d2d2d7; border-top-color: #1d1d1f; border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 18px; }
+  .check { width: 32px; height: 32px; margin: 0 auto 18px; color: #34c759; }
   @keyframes spin { to { transform: rotate(360deg); } }
+  .back { display: inline-block; margin-top: 18px; font-size: 14px; color: #6e6e73; }
 </style>
 </head>
 <body>
 <div class="card">
-  <div class="spinner"></div>
-  <h1>Downloading Wavetype Pro</h1>
-  <p>Your download should start in a moment.</p>
-  <p>If it doesn't, <a href="../releases/Wavetype-Pro-1.7.dmg">click here</a>.</p>
+  <div id="wt-spinner" class="spinner"></div>
+  <h1 id="wt-title">Downloading Wavetype Pro</h1>
+  <p id="wt-msg">Your download should start in a moment.</p>
+  <p id="wt-fallback">If it doesn't, <a href="../releases/Wavetype-Pro-1.7.dmg">click here</a>.</p>
+  <a class="back" href="../">Back to Wavetype</a>
 </div>
+<iframe id="wt-dl" style="display:none" tabindex="-1" aria-hidden="true"></iframe>
 <script>
   setTimeout(function(){
-    window.location.href = '../releases/Wavetype-Pro-1.7.dmg';
-  }, 1200);
+    document.getElementById('wt-dl').src = '../releases/Wavetype-Pro-1.7.dmg';
+    setTimeout(function(){
+      var spin = document.getElementById('wt-spinner');
+      spin.style.display = 'none';
+      document.getElementById('wt-title').textContent = 'Download started';
+      document.getElementById('wt-msg').textContent = 'Open the .dmg in your Downloads folder when it finishes.';
+      document.getElementById('wt-fallback').innerHTML = "Nothing happened? <a href='../releases/Wavetype-Pro-1.7.dmg'>Click here to retry</a>.";
+    }, 1500);
+  }, 800);
 </script>
 </body>
 </html>
