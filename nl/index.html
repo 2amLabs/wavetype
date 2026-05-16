@@ -201,12 +201,32 @@ footer nav a:hover { color: var(--text); }
   .compare th, .compare td { padding: 10px 8px; font-size: 13px; }
 }
 </style>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-08GEECM0KS"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+// Wavetype GA4 with consent gate. Loads gtag only after the user accepts the
+// cookie banner, or auto-loads if they accepted on a previous visit.
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'wait_for_update': 500
+});
+window.WT_LOAD_GA = function() {
+  if (window.WT_GA_LOADED) return;
+  window.WT_GA_LOADED = true;
+  gtag('consent', 'update', {'analytics_storage': 'granted'});
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=G-08GEECM0KS';
+  document.head.appendChild(s);
   gtag('js', new Date());
-  gtag('config', 'G-08GEECM0KS');
+  gtag('config', 'G-08GEECM0KS', {'anonymize_ip': true});
+};
+try {
+  if (localStorage.getItem('wt_consent') === 'granted') {
+    window.WT_LOAD_GA();
+  }
+} catch(e) {}
 </script>
 </head>
 <body>
@@ -235,7 +255,7 @@ footer nav a:hover { color: var(--text); }
     <a class="btn btn-appstore" href="https://apps.apple.com/app/id6756549884">Download in de Mac App Store</a>
     <a class="btn btn-pro" href="https://2amlabs.gumroad.com/l/wavetypepro">Pro halen — $19.99 levenslang</a>
   </div>
-  <p class="hero-direct" style="margin-top:14px;margin-bottom:0;font-size:14px;"><a href="../releases/Wavetype-Pro-1.7.dmg" style="color:#6e6e73;text-decoration:underline;">Of direct downloaden (.dmg, gratis proefversie)</a></p>
+  <p class="hero-direct" style="margin-top:14px;margin-bottom:0;font-size:14px;"><a href="../releases/Wavetype-Pro-1.7.dmg" onclick="if(window.gtag){gtag('event','download_dmg',{'app_version':'1.7','locale':'nl'});}" style="color:#6e6e73;text-decoration:underline;">Of direct downloaden (.dmg, gratis proefversie)</a></p>
   <p class="hero-subnote">Gratis proefversie · Geen account · Werkt offline · macOS 14+</p>
   <img class="hero-image" src="../assets/screenshots/listing_nl_1_hero.png" alt="Wavetype">
 </section>
@@ -361,5 +381,28 @@ footer nav a:hover { color: var(--text); }
   <p style="margin-top:14px;">© 2026 2amLabs. All rights reserved.</p>
 </footer>
 
+<div id="wt-consent" style="display:none;position:fixed;left:16px;right:16px;bottom:16px;z-index:1000;background:#fff;border:1px solid #d2d2d7;border-radius:14px;box-shadow:0 8px 30px rgba(0,0,0,.12);padding:16px 18px;font-size:14px;max-width:560px;margin:0 auto;align-items:center;gap:14px;flex-wrap:wrap;">
+  <span style="flex:1;min-width:240px;color:#1d1d1f;line-height:1.5;">We gebruiken analyse-cookies om te begrijpen hoe Wavetype wordt gebruikt. Je kunt accepteren of weigeren.</span>
+  <button type="button" onclick="wtConsent(false)" style="background:#f5f5f7;color:#1d1d1f;border:1px solid #d2d2d7;border-radius:999px;padding:7px 14px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;">Weigeren</button>
+  <button type="button" onclick="wtConsent(true)" style="background:#1d1d1f;color:#fff;border:none;border-radius:999px;padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;">Accepteren</button>
+</div>
+<script>
+(function(){
+  var banner = document.getElementById('wt-consent');
+  try {
+    var choice = localStorage.getItem('wt_consent');
+    if (!choice) banner.style.display = 'flex';
+  } catch(e) {}
+  window.wtConsent = function(accept) {
+    try {
+      localStorage.setItem('wt_consent', accept ? 'granted' : 'denied');
+    } catch(e) {}
+    banner.style.display = 'none';
+    if (accept && typeof window.WT_LOAD_GA === 'function') {
+      window.WT_LOAD_GA();
+    }
+  };
+})();
+</script>
 </body>
 </html>
